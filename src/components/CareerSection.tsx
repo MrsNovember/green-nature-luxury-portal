@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Briefcase, MapPin, Clock, ArrowRight, Users } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const jobOpenings = [
   {
@@ -84,13 +85,14 @@ export function CareerSection() {
               </div>
             </div>
 
-            <motion.button
+            <motion.div
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="btn-luxury"
             >
-              View All Positions
-            </motion.button>
+              <Link to="/careers" className="btn-luxury inline-block">
+                View All Positions
+              </Link>
+            </motion.div>
           </motion.div>
 
           {/* Right - Job Listings */}
