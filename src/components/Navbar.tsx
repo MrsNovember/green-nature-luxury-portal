@@ -17,12 +17,12 @@ const languages = [
 ];
 
 const navLinks = [
-  { name: "Accommodations", href: "#accommodations" },
-  { name: "Experiences", href: "#experiences" },
-  { name: "Dining", href: "#dining" },
-  { name: "Spa & Wellness", href: "#spa" },
-  { name: "Careers", href: "#careers" },
-  { name: "Contact", href: "#contact" },
+  { name: "Accommodations", href: "/#accommodations" },
+  { name: "Experiences", href: "/#experiences" },
+  { name: "Dining", href: "/#dining" },
+  { name: "Spa & Wellness", href: "/#spa" },
+  { name: "Careers", href: "/careers" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 export function Navbar() {
@@ -120,13 +120,13 @@ export function Navbar() {
 
               {/* Nav Links */}
               {navLinks.slice(0, 4).map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
+                  to={link.href}
                   className="nav-link text-ivory/90 hover:text-champagne"
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
             </nav>
 
@@ -233,17 +233,20 @@ export function Navbar() {
               {/* Nav Links */}
               <nav className="flex flex-col gap-4">
                 {navLinks.map((link, index) => (
-                  <motion.a
+                  <motion.div
                     key={link.name}
-                    href={link.href}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="font-display text-2xl text-ivory hover:text-champagne transition-colors"
                   >
-                    {link.name}
-                  </motion.a>
+                    <Link
+                      to={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="font-display text-2xl text-ivory hover:text-champagne transition-colors block"
+                    >
+                      {link.name}
+                    </Link>
+                  </motion.div>
                 ))}
               </nav>
 
