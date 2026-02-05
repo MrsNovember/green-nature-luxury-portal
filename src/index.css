@@ -2,95 +2,106 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+@import '@fontsource/playfair-display/400.css';
+@import '@fontsource/playfair-display/500.css';
+@import '@fontsource/playfair-display/600.css';
+@import '@fontsource/playfair-display/700.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+
+/* Green Nature Hotels - Luxury Eco-Chic Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Brand Colors */
+    --forest: 162 90% 17%;
+    --forest-light: 162 80% 25%;
+    --forest-dark: 162 95% 12%;
+    --champagne: 45 64% 52%;
+    --champagne-light: 45 70% 65%;
+    --champagne-dark: 45 60% 40%;
+    
+    /* Neutrals */
+    --ivory: 40 33% 98%;
+    --cream: 40 25% 94%;
+    --sand: 35 20% 88%;
+    --stone: 30 10% 60%;
+    --charcoal: 220 15% 20%;
+    --midnight: 220 20% 10%;
+    
+    /* Semantic Tokens */
+    --background: var(--ivory);
+    --foreground: var(--charcoal);
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: var(--charcoal);
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: var(--charcoal);
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: var(--forest);
+    --primary-foreground: var(--ivory);
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: var(--cream);
+    --secondary-foreground: var(--forest);
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: var(--sand);
+    --muted-foreground: var(--stone);
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: var(--champagne);
+    --accent-foreground: var(--midnight);
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 35 20% 85%;
+    --input: 35 20% 85%;
+    --ring: var(--champagne);
 
-    --radius: 0.5rem;
+    --radius: 0.25rem;
 
+    /* Gradients */
+    --gradient-forest: linear-gradient(135deg, hsl(var(--forest)) 0%, hsl(var(--forest-light)) 100%);
+    --gradient-champagne: linear-gradient(135deg, hsl(var(--champagne-dark)) 0%, hsl(var(--champagne)) 50%, hsl(var(--champagne-light)) 100%);
+    --gradient-hero-overlay: linear-gradient(180deg, hsla(var(--midnight), 0.4) 0%, hsla(var(--forest-dark), 0.6) 100%);
+    --gradient-card: linear-gradient(180deg, hsla(0, 0%, 100%, 0.95) 0%, hsla(0, 0%, 100%, 0.85) 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px hsla(var(--midnight), 0.06);
+    --shadow-md: 0 4px 20px hsla(var(--midnight), 0.08);
+    --shadow-lg: 0 8px 40px hsla(var(--midnight), 0.12);
+    --shadow-gold: 0 4px 20px hsla(var(--champagne), 0.3);
+    
+    /* Sidebar defaults */
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: var(--midnight);
+    --foreground: var(--ivory);
+    --card: var(--charcoal);
+    --card-foreground: var(--ivory);
+    --popover: var(--charcoal);
+    --popover-foreground: var(--ivory);
+    --primary: var(--champagne);
+    --primary-foreground: var(--midnight);
+    --secondary: 220 15% 25%;
+    --secondary-foreground: var(--ivory);
+    --muted: 220 15% 25%;
+    --muted-foreground: var(--sand);
+    --accent: var(--forest-light);
+    --accent-foreground: var(--ivory);
+    --border: 220 15% 25%;
+    --input: 220 15% 25%;
+    --ring: var(--champagne);
   }
 }
 
@@ -99,7 +110,126 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    @apply font-medium tracking-tight;
+  }
+}
+
+@layer components {
+  /* Luxury Button Variants */
+  .btn-luxury {
+    @apply inline-flex items-center justify-center px-8 py-4 text-sm font-medium tracking-widest uppercase transition-all duration-500;
+    background: var(--gradient-champagne);
+    @apply text-accent-foreground;
+    box-shadow: var(--shadow-gold);
+  }
+  
+  .btn-luxury:hover {
+    @apply scale-[1.02];
+    box-shadow: 0 6px 30px hsla(var(--champagne), 0.4);
+  }
+
+  .btn-outline-luxury {
+    @apply inline-flex items-center justify-center px-8 py-4 text-sm font-medium tracking-widest uppercase transition-all duration-300 border-2;
+    border-color: hsl(var(--champagne));
+    color: hsl(var(--champagne));
+    @apply bg-transparent;
+  }
+
+  .btn-outline-luxury:hover {
+    background: hsl(var(--champagne));
+    color: hsl(var(--midnight));
+  }
+
+  /* Text Decorations */
+  .text-gradient-gold {
+    background: var(--gradient-champagne);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Cards */
+  .card-luxury {
+    @apply relative overflow-hidden rounded-sm transition-all duration-500;
+    background: var(--gradient-card);
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .card-luxury:hover {
+    @apply scale-[1.02];
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Dividers */
+  .divider-gold {
+    @apply w-20 h-0.5 mx-auto;
+    background: var(--gradient-champagne);
+  }
+
+  /* Hero Overlay */
+  .hero-overlay {
+    background: var(--gradient-hero-overlay);
+  }
+
+  /* Parallax Container */
+  .parallax-container {
+    @apply relative overflow-hidden;
+    perspective: 1000px;
+  }
+
+  /* Navigation Link */
+  .nav-link {
+    @apply relative text-sm font-medium tracking-wider uppercase transition-colors duration-300;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300;
+    background: var(--gradient-champagne);
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  /* Section Spacing */
+  .section-padding {
+    @apply py-20 md:py-32 px-6 md:px-12 lg:px-20;
+  }
+
+  /* Image Overlay on Hover */
+  .image-overlay {
+    @apply absolute inset-0 opacity-0 transition-opacity duration-500;
+    background: linear-gradient(180deg, transparent 0%, hsla(var(--forest-dark), 0.9) 100%);
+  }
+
+  .group:hover .image-overlay {
+    @apply opacity-100;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-body {
+    font-family: 'Inter', system-ui, sans-serif;
   }
 }
